@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.footer ul {
+  padding: 0;
+  text-transform: capitalize;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footer-copyright span {
+  color: tomato;
+  cursor: pointer;
+}

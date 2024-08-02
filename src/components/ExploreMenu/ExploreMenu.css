@@ -1,0 +1,48 @@
+.explore-menu-text {
+  color: #808080;
+}
+
+.explore-menu-list {
+  gap: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.explore-menu-item img {
+  width: 8rem;
+  min-width: 80px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.explore-menu-item img.active {
+  padding: 2px;
+  border: 4px solid tomato;
+}
+
+.explore-menu-item p {
+  color: #808080;
+  margin-top: 10px;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.explore-menu hr {
+  background-color: #808080;
+  border: none;
+  height: 1px;
+  margin: 10px 0;
+}
+@media (width > 992px) {
+  .explore-menu-text {
+    max-width: 60%;
+  }
+
+  .explore-menu-list {
+    gap: 30px;
+  }
+}
