@@ -21,6 +21,7 @@ const ExploreMenu = ({ category, setCategory }) => {
         <Swiper
           spaceBetween={20}
           slidesPerView={2}
+          loop={true}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
