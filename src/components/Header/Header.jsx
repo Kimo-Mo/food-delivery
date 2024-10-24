@@ -1,9 +1,9 @@
 import "./Header.css";
-import HeaderImg from "/header_img.png"
+import HeaderImg from "/header_img.png";
 const Header = () => {
   return (
     <div className="header">
-        <img  src={HeaderImg} alt="Header Img" />
+      <img src={HeaderImg} alt="Header Img" />
       <div className="header-content">
         <h1 className="fs-1 mb-xl-5 mb-3">order your favorite food here</h1>
         <p className="d-none d-md-block fs-6">
@@ -12,7 +12,9 @@ const Header = () => {
           is to satisfy your cravings and elevate your dining experience, One
           delicious meal at a time.
         </p>
-        <button className="btn fs-6">view menu</button>
+        <button className="btn fs-6">
+          <a href="#explore-menu">view menu</a>
+        </button>
       </div>
     </div>
   );
