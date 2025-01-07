@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import "./NavBar.css";
-import { assets } from "./../../assets/assets";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { storeContext } from "../../Contexts/StoreContext";
@@ -12,7 +11,7 @@ const NavBar = ({ setShowLogin }) => {
     <nav className="navbar navbar-expand-lg ">
       <div className="container">
         <Link to="/Home">
-          <img className="logo" src={assets.logo} alt="Logo" />
+          <img className="logo" src="/imgs/logo.png" alt="Logo" />
         </Link>
         <ul className="navbar-nav d-lg-flex d-none">
           <Link to="/Home">
@@ -50,11 +49,11 @@ const NavBar = ({ setShowLogin }) => {
           </a>
         </ul>
         <div className="navBar-right">
-          <img src={assets.search_icon} alt="search icon" />
+          <img src="/imgs/search_icon.png" alt="search icon" />
           <div className="navBar-basketIcon position-relative">
             <Link to="/Cart">
               <img
-                src={assets.basket_icon}
+                src="/imgs/basket_icon.png"
                 alt="basket icon"
                 onClick={() => setActive(null)}
               />

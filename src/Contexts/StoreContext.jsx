@@ -1,13 +1,24 @@
 /* eslint-disable react/prop-types */
-import { createContext,  useState } from "react";
-import { food_list } from "../assets/assets";
+import { createContext, useEffect, useState } from "react";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const storeContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
+  const [foodList, setFoodList] = useState([]);
+  const [menuList, setMenuList] = useState([]);
 
+  useEffect(() => {
+    fetch("https://food-json-server.vercel.app/foodList")
+      .then((res) => res.json())
+      .then((data) => setFoodList(data))
+      .catch((err) => console.log(err));
+
+    fetch("https://food-json-server.vercel.app/menuList")
+      .then((res) => res.json())
+      .then((data) => setMenuList(data));
+  }, []);
   const addToCart = (itemId) => {
     if (!cartItems[itemId]) {
       setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
@@ -22,7 +33,7 @@ const StoreContextProvider = (props) => {
     let totalAmount = 0;
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
-        let itemInfo = food_list.find((product) => product.id === item);
+        let itemInfo = foodList.find((product) => product.id === item);
         totalAmount += itemInfo.price * cartItems[item];
       }
     }
@@ -30,7 +41,8 @@ const StoreContextProvider = (props) => {
   };
 
   const contextValue = {
-    food_list,
+    foodList,
+    menuList,
     cartItems,
     setCartItems,
     addToCart,

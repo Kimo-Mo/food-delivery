@@ -1,14 +1,16 @@
 /* eslint-disable react/prop-types */
 import "./ExploreMenu.css";
-import { menu_list } from "../../assets/assets";
+import { useContext } from "react";
+import { storeContext } from "../../Contexts/StoreContext";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
 const ExploreMenu = ({ category, setCategory }) => {
+  const { menuList } = useContext(storeContext);
   return (
     <div className="explore-menu" id="explore-menu">
       <h1>Explore Our Menu</h1>
@@ -44,26 +46,28 @@ const ExploreMenu = ({ category, setCategory }) => {
             },
           }}
           modules={[Autoplay]}>
-          {menu_list.map((item, index) => {
-            return (
-              <SwiperSlide key={index}>
-                <div
-                  onClick={() =>
-                    setCategory((prev) =>
-                      prev === item.menu_name ? "All" : item.menu_name
-                    )
-                  }
-                  className="explore-menu-item">
-                  <img
-                    className={category === item.menu_name ? "active" : ""}
-                    src={item.menu_image}
-                    alt={item.menu_name}
-                  />
-                  <p className="fs-6">{item.menu_name}</p>
-                </div>
-              </SwiperSlide>
-            );
-          })}
+          {menuList.length && (
+            menuList.map((item, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  <div
+                    onClick={() =>
+                      setCategory((prev) =>
+                        prev === item.menu_name ? "All" : item.menu_name
+                      )
+                    }
+                    className="explore-menu-item">
+                    <img
+                      className={category === item.menu_name ? "active" : ""}
+                      src={item.menu_image}
+                      alt={item.menu_name}
+                    />
+                    <p className="fs-6">{item.menu_name}</p>
+                  </div>
+                </SwiperSlide>
+              );
+            })
+          )}
         </Swiper>
       </div>
       <hr />

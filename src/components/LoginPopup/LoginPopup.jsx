@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
-import { assets } from "../../assets/assets";
 import "./LoginPopup.css";
 import { useState } from "react";
 
@@ -14,16 +13,14 @@ const LoginPopup = ({ setShowLogin }) => {
         <div className="login-popup-title ">
           <h2>{action}</h2>
           <img
-            src={assets.cross_icon}
+            src='imgs/cross_icon.png'
             alt="x icon"
             onClick={() => setShowLogin(false)}
           />
         </div>
         <div className="login-popup-inputs">
-          {action === "Sign Up" ? (
+          {action === "Sign Up" && (
             <input type="text" name="name" placeholder="Your Name" required />
-          ) : (
-            <></>
           )}
           <input type="email" name="email" placeholder="Your Email" required />
           <input

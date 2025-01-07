@@ -1,4 +1,3 @@
-import { assets } from "../../assets/assets"
 import "./AppDownload.css"
 const AppDownload = () => {
   return (
@@ -7,8 +6,8 @@ const AppDownload = () => {
         for better experience download <br /> tomato app{" "}
       </h1>
       <div className="app-download-platforms mt-5">
-        <img src={assets.app_store} alt="app store" />
-        <img src={assets.play_store} alt="play store" />
+        <img src='/imgs/app_store.png' alt="app store" />
+        <img src='/imgs/play_store.png' alt="play store" />
       </div>
     </div>
   );
