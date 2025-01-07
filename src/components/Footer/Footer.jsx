@@ -4,7 +4,7 @@ const Footer = () => {
     <div className="footer bg-dark text-light py-5" id="footer">
       <div className="footer-content container mb-4 row row-gap-4 row-gap-lg-0 ">
         <div className="footer-left flex-grow-1 col-xs-12 col-sm-6 col-lg-6">
-          <img src='/imgs/logo.png' alt="logo" />
+          <img src="/imgs/logo.png" alt="logo" />
           <p className="mt-4 text-white-50">
             Choose from a diverse menu featuring a delectable array of dishes
             crafted with the finest ingredients an culinary expertise. Our
@@ -12,9 +12,9 @@ const Footer = () => {
             experience, One delicious meal at a time.
           </p>
           <div className="social-links d-flex gap-3">
-            <img src='/imgs/facebook_icon.png' alt="facebook icon" />
-            <img src='/imgs/twitter_icon.png' alt="twitter icon" />
-            <img src='/imgs/linkedIn_icon.png' alt="linkedIn icon" />
+            <img src="/imgs/facebook_icon.png" alt="facebook icon" />
+            <img src="/imgs/twitter_icon.png" alt="twitter icon" />
+            <img src="/imgs/linkedin_icon.png" alt="linkedIn icon" />
           </div>
         </div>
         <div className="footer-center col-xs-12 col-sm-6 col-lg-3">
