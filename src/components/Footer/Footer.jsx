@@ -12,9 +12,9 @@ const Footer = () => {
             experience, One delicious meal at a time.
           </p>
           <div className="social-links d-flex gap-3">
-            <img src='/assets/facebook_icon.png' alt="facebook icon" />
-            <img src='/assets/twitter_icon.png' alt="twitter icon" />
-            <img src='/assets/linkedIn_icon.png' alt="linkedIn icon" />
+            <img src='/imgs/facebook_icon.png' alt="facebook icon" />
+            <img src='/imgs/twitter_icon.png' alt="twitter icon" />
+            <img src='/imgs/linkedIn_icon.png' alt="linkedIn icon" />
           </div>
         </div>
         <div className="footer-center col-xs-12 col-sm-6 col-lg-3">
