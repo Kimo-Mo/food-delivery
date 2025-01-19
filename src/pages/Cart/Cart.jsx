@@ -1,12 +1,10 @@
 import { useContext } from "react";
 import "./Cart.css";
 import { storeContext } from "../../Contexts/StoreContext";
-import { useNavigate } from "react-router-dom";
+import CartTotal from "../../components/CartTotal/CartTotal";
 
 const Cart = () => {
-  const { foodList, cartItems, removeFromCart, getTotalCartAmount } =
-    useContext(storeContext);
-  const navigate = useNavigate("");
+  const { foodList, cartItems, removeFromCart } = useContext(storeContext);
   return (
     foodList && (
       <div className="cart container">
@@ -40,33 +38,7 @@ const Cart = () => {
           })}
         </div>
         <div className="cart-bottom">
-          <div className="cart-total">
-            <h2>Cart Total</h2>
-            <div>
-              <div className="cart-total-details">
-                <p>Subtotal</p>
-                <p>${getTotalCartAmount()}</p>
-              </div>
-              <hr />
-              <div className="cart-total-details">
-                <p>Delivery Fee</p>
-                <p>${(getTotalCartAmount() * 0.05).toFixed(2)}</p>
-              </div>
-              <hr />
-              <div className="cart-total-details">
-                <b>Total</b>
-                <b>
-                  $
-                  {(getTotalCartAmount() + getTotalCartAmount() * 0.05).toFixed(
-                    2
-                  )}
-                </b>
-              </div>
-            </div>
-            <button onClick={() => navigate("/Order")}>
-              PROCEED TO CHECKOUT
-            </button>
-          </div>
+          <CartTotal btnText="Checkout" />
           <div className="cart-promoCode">
             <p className="text-capitalize text-secondary">
               if you have a promo code, enter it here

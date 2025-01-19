@@ -1,10 +1,8 @@
-import { useContext } from "react";
-import { storeContext } from "../../Contexts/StoreContext";
+import CartTotal from "../../components/CartTotal/CartTotal";
 import "./PlaceOrder.css";
 const PlaceOrder = () => {
-  const { getTotalCartAmount } = useContext(storeContext);
   return (
-    <form className="place-order container">
+    <form className="place-order container" onSubmit={(e) => e.preventDefault()}>
       <div className="place-order-left">
         <h2 className="title">Delivery Information</h2>
         <div className="multi-fields">
@@ -29,28 +27,7 @@ const PlaceOrder = () => {
         <input type="text" name="phone" placeholder="Phone Number" required />
       </div>
       <div className="place-order-right">
-        <div className="cart-total">
-          <h2>Cart Total</h2>
-          <div>
-            <div className="cart-total-details">
-              <p>Subtotal</p>
-              <p>${getTotalCartAmount()}</p>
-            </div>
-            <hr />
-            <div className="cart-total-details">
-              <p>Delivery Fee</p>
-              <p>${(getTotalCartAmount() * 0.05).toFixed(2)}</p>
-            </div>
-            <hr />
-            <div className="cart-total-details">
-              <b>Total</b>
-              <b>${getTotalCartAmount() + getTotalCartAmount() * 0.05}</b>
-            </div>
-          </div>
-          <button onClick={(e) => e.preventDefault()}>
-            PROCEED TO PAYMENT
-          </button>
-        </div>
+        <CartTotal btnText="payment" />
       </div>
     </form>
   );
