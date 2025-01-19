@@ -1,5 +1,7 @@
 import "./Footer.css";
+import { Link, useNavigate } from "react-router-dom";
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <div className="footer bg-dark text-light py-5" id="footer">
       <div className="footer-content container mb-4 row row-gap-4 row-gap-lg-0 ">
@@ -20,10 +22,20 @@ const Footer = () => {
         <div className="footer-center col-xs-12 col-sm-6 col-lg-3">
           <h2 className="text-uppercase">company</h2>
           <ul className="text-start">
-            <li>home</li>
-            <li>about us</li>
-            <li>delivery</li>
-            <li>privacy policy</li>
+            <li>
+              <Link to="/Home">home</Link>
+            </li>
+            <li>
+              <a href="#explore-menu" onClick={() => navigate("/Home")}>
+                menu
+              </a>
+            </li>
+            <li>
+              <Link to="/Cart">cart</Link>
+            </li>
+            <li>
+              <Link to="/Order">order</Link>
+            </li>
           </ul>
         </div>
         <div className="footer-right col-xs-12 col-sm-6 col-lg-3">

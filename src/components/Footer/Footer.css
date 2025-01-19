@@ -16,6 +16,18 @@
   cursor: pointer;
 }
 
+.footer .social-links img {
+  cursor: pointer;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  transition: 0.15s;
+}
+
+.footer .social-links img:hover {
+  transform: scale(1.05);
+  border-color: tomato;
+}
+
 .footer-copyright span {
   color: tomato;
   cursor: pointer;
