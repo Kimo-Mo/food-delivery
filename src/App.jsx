@@ -14,16 +14,16 @@ const LoginPopup = React.lazy(() =>
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
-
+  const [user, setUser] = useState(null);
   return (
     <>
       {showLogin && (
         <React.Suspense fallback={<Loading />}>
-          <LoginPopup setShowLogin={setShowLogin} />
+          <LoginPopup setShowLogin={setShowLogin} setUser={setUser} />
         </React.Suspense>
       )}
-      <div className="app">
-        <NavBar setShowLogin={setShowLogin} />
+      
+        <NavBar setShowLogin={setShowLogin} user={user} setUser={setUser} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />
@@ -45,7 +45,7 @@ const App = () => {
           />
         </Routes>
         <Footer />
-      </div>
+      
     </>
   );
 };

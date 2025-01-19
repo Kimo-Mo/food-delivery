@@ -42,12 +42,16 @@
   width: 100%;
   padding: 15px;
   border-radius: 8px;
+  margin-top: 10px;
 }
 
 .login-popup-inputs input {
-  margin-bottom: 10px;
   border: 1px solid #c9c9c9;
   caret-color: tomato;
+}
+
+.login-popup-inputs input:focus {
+  border: 1px solid tomato;
 }
 
 .submit-btn {

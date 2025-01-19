@@ -3,7 +3,7 @@ import "./NavBar.css";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { storeContext } from "../../Contexts/StoreContext";
-const NavBar = ({ setShowLogin }) => {
+const NavBar = ({ setShowLogin, user, setUser }) => {
   const [active, setActive] = useState("home");
   const { getTotalCartAmount } = useContext(storeContext);
   const navigate = useNavigate();
@@ -49,7 +49,14 @@ const NavBar = ({ setShowLogin }) => {
           </a>
         </ul>
         <div className="navBar-right">
-          <img src="/imgs/search_icon.png" alt="search icon" />
+          <a
+            href="#explore-menu"
+            onClick={() => {
+              setActive("menu");
+              navigate("/Home");
+            }}>
+            <img src="/imgs/search_icon.png" alt="search icon" />
+          </a>
           <div className="navBar-basketIcon position-relative">
             <Link to="/Cart">
               <img
@@ -60,9 +67,15 @@ const NavBar = ({ setShowLogin }) => {
             </Link>
             <div className={getTotalCartAmount() ? "dot" : ""}></div>
           </div>
-          <button className="signUp btn" onClick={() => setShowLogin(true)}>
-            sign up
-          </button>
+          {user ? (
+            <button className="signUp btn" onClick={() => setUser(null)}>
+              Log out
+            </button>
+          ) : (
+            <button className="signUp btn" onClick={() => setShowLogin(true)}>
+              Sign up
+            </button>
+          )}
         </div>
       </div>
     </nav>
