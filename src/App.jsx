@@ -13,12 +13,22 @@ const LoginPopup = React.lazy(() =>
 );
 
 const App = () => {
+  const [showScrollBtn, setShowScrollBtn] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [user, setUser] = useState(null);
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        setShowScrollBtn(true);
+      } else {
+        setShowScrollBtn(false);
+      }
+    });
+  }, []);
   return (
     <>
       {showLogin && (
@@ -49,6 +59,15 @@ const App = () => {
         />
       </Routes>
       <Footer />
+      <button
+        onClick={() => window.scrollTo(0, 0)}
+        className="scrollTop"
+        style={{
+          bottom: showScrollBtn ? "20px" : "-100px",
+          opacity: showScrollBtn ? "1" : "0",
+        }}>
+        <img src="/arrow-up.svg" alt="arrow up" />
+      </button>
     </>
   );
 };
