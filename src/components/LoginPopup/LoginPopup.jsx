@@ -40,7 +40,6 @@ const LoginPopup = ({ setShowLogin, setUser }) => {
 
     if (action === "Sign Up") {
       if (!newErrorMsg.name && !newErrorMsg.email && !newErrorMsg.password) {
-        console.log(formInputs);
         setUser(formInputs.name);
         setShowLogin(false);
       } else {
